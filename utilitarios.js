@@ -50,3 +50,16 @@ deshabilitarComponente = function(idComponente){
 habilitarComponente = function(idComponente){
     document.getElementById(idComponente).disabled = false;
 }
+
+// mostrar texto div 
+mostrarTextoDIV=function(idComponente,mensaje){
+    let componente;
+    componente=document.getElementById(idComponente);
+    componente.textContent = mensaje;
+}
+//mostrar texto con html
+mostrarTextoHTML=function(idComponente,mensaje){
+    let componente;
+    componente=document.getElementById(idComponente);
+    componente.innerHTML = mensaje;
+}
