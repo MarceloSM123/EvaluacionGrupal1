@@ -15,22 +15,57 @@ cargar=function(){
 
 filtrarMovimientos=function(numeroCuenta){
     let movimientosCuenta=[];
-    //Se barre el arreglo de movimientos
-    //En cada iteración, verifica si el numero de cuenta del movimiento es igual al que recibe como parametro
-    //En caso de serlo, agrega la cuenta al arreglo movimientosCuenta
-    //Invoca a mostrarMovimientos, pasándole como parámetro movimientosCuenta
+    
+    for (let i = 0; i < movimientos.length; i++) {
+        if (movimientos[i].numeroCuenta === numeroCuenta) {
+            movimientosCuenta.push(movimientos[i]);
+        }
+    }
+    mostrarMovimientos(movimientosCuenta);
 }
 
-/*
-    Recibe un arreglo con los movimientos que va a mostrar en pantalla
-*/
 mostrarMovimientos=function(misMovimientos){
-    //Muestra en pantalla una tabla con los movimientos que recibe en misMovimientos
-    //Columnas: NUMERO CUENTA, MONTO, TIPO
-    //Si ya pinta correctamente la tabla, hacer el siguiente cambio:
-    //Si el tipo es D(DEBITO), mostrar el monto en negativo (multiplicar por -1)
-    //Si el tipo es C(CREDITO), mostrar el monto en positivo (tal como está guardado)
+    let tablaHTML = '<table class="tablaMovimientos">';
+    
+    tablaHTML += '<thead><tr><th>CUENTA</th><th>MONTO</th><th>OPERACION</th></tr></thead>';
+    
+    tablaHTML += '<tbody>';
+    
+    misMovimientos.forEach(movimiento => {
+        let montoAMostrar = movimiento.monto;
+        let tipoOperacion = '';
+        
+        if (movimiento.tipo === "D") {
+            montoAMostrar = montoAMostrar * -1; 
+            tipoOperacion = 'DEBITO';
+        } else if (movimiento.tipo === "C") { 
+            tipoOperacion = 'CREDITO';
+        }
+        
+        
+        tablaHTML += `<tr>
+            <td>${movimiento.numeroCuenta}</td>
+            <td>${montoAMostrar.toFixed(2)}</td>
+            <td>${tipoOperacion}</td>
+        </tr>`;
+    });
+    
+    tablaHTML += '</tbody></table>';
+
+    mostrarTexto("tablaMovimientos", tablaHTML); 
 }
+
+buscarMovimientos=function(){
+    
+    let numeroCuenta = recuperarTexto("txtNumeroCuenta");
+    
+    if (numeroCuenta) {
+        filtrarMovimientos(numeroCuenta);
+    } else {
+        alert("Por favor, ingrese un numero de cuenta.");
+    }
+}
+
 
 
 
