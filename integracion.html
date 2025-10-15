@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="banco.css" rel="stylesheet" />
+    <script src="integracion.js"></script> 
+    <script src="utilitarios.js"></script>
+</head>
+
+<body onload="cargar();">
+    <div class="principal">
+        <div class="menu">
+            <div class="contenedorLogo">
+                <img src="./imagenes/logoKrakeDev.png" width="80%" />
+            </div>
+            <div class="contenedorBotones">
+                <input type="button" value="CUENTAS" class="boton" onclick="mostrarSeccion('divCuentas');" />
+                <input type="button" value="TRANSACCIONES" class="boton" onclick="mostrarSeccion('divTransacciones');" />
+                <input type="button" value="MOVIMIENTOS" class="boton" onclick="mostrarSeccion('divMovimientos');" />
+            </div>
+            <div class="contenedorInfoGrupo">
+                <div>INTEGRANTE 1: Marcelo Salcedo</div>
+                <div>INTEGRANTE 2: Johan Aguilar</div>
+                <div>INTEGRANTE 3: AngelMorales</div>
+            </div>
+        </div>
+
+        <div class="contenido" id="divCuentas">
+            <div class="superior">
+                <div class="titulo">CUENTAS</div>
+                <div class="contenedorTexto">
+                    <div class="etiquetaTexto">N° DE CEDULA</div>
+                    <div class="cajaTexto">
+                        <input type="text" class="caja" id="txtCedula" />
+                    </div>
+                </div>
+                <div class="contenedorTexto">
+                    <div class="etiquetaTexto">N° DE CUENTA</div>
+                    <div class="cajaTexto">
+                        <input type="text" class="caja" id="txtCuenta" />
+                    </div>
+                </div>
+                <div class="contenedorTexto">
+                    <div class="etiquetaTexto">NOMBRE</div>
+                    <div class="cajaTexto">
+                        <input type="text" class="caja" id="txtNombre" />
+                    </div>
+                </div>
+                <div class="contenedorTexto">
+                    <div class="etiquetaTexto">APELLIDO</div>
+                    <div class="cajaTexto">
+                        <input type="text" class="caja" id="txtApellido" />
+                    </div>
+                </div>
+                <div class="contenedorAcciones">
+                    <input type="button" value="GUARDAR" onclick="agregar();" />
+                </div>
+            </div>
+
+            <div class="inferior" id="tablaCuentas">
+                TABLA DE CUENTAS
+            </div>
+        </div>
+
+        <div class="contenido" id="divTransacciones">
+            <div class="superior">
+                <div class="titulo">TRANSACCIONES</div>
+                <div class="contenedorTexto">
+                    <div class="etiquetaTexto">NUMERO DE CUENTA</div>
+                    <div class="cajaTexto">
+                        <input type="text" class="caja" id="txtCajaCuentas" />
+                    </div>
+                </div>
+                <div class="contenedorAcciones">
+                    <input type="button" value="BUSCAR" onclick="ejecutarBusqueda();" />
+                </div>
+
+                <div id="contenedorTransacciones" style="display: none;"> <div class="contenedorTexto">
+                        <div class="etiquetaTexto">MONTO</div>
+                        <div class="cajaTexto">
+                            <input type="text" class="caja" id="txtMonto" />
+                        </div>
+                    </div>
+                    <div class="contenedorAcciones">
+                        <input type="button" value="DEPOSITAR" onclick="ejecutarDeposito();" />
+                        <input type="button" value="RETIRAR" onclick="ejecutarRetiro();" />
+                    </div>
+                    <div id="divTabla">
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contenido" id="divMovimientos">
+            <div class="inferior">
+                <div class="titulo"></div>
+                <div class="contenedorTexto">
+                    <div class="etiquetaTexto">NUMERO DE CUENTA</div>
+                    <div class="cajaTexto">
+                        <input type="text" class="caja" id="txtNumeroCuentaMov" /> 
+                    </div>
+                </div>
+                <div class="contenedorAcciones">
+                    
+                    <input type="button" value="VER MOVIMIENTOS" onclick="buscarMovimientos()" />
+
+                   
+                </div>
+                <div id="tablaMovimientos">
+                    </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
