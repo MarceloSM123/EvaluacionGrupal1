@@ -20,7 +20,7 @@
             </div>
             <div class="contenedorInfoGrupo">
                 <div>INTEGRANTE 1</div>
-                <div>INTEGRANTE 2</div>
+                <div>INTEGRANTE 2:JOHANN AGUILAR</div>
                 <div>INTEGRANTE 3</div>
             </div>
         </div>
@@ -61,22 +61,27 @@
                 <div class="contenedorTexto">
                     <div class="etiquetaTexto">CAMPO 1</div>
                     <div class="cajaTexto">
-                        <input type="text" class="caja" />
+                        <input type="text" class="caja" id="txtCajaCuentas"/>
                     </div>
                 </div>
                 <div class="contenedorAcciones">
-                    <input type="button" value="BUSCAR" />
+                    <input type="button" value="BUSCAR" onclick="ejecutarBusqueda();"/>
                 </div>
-                <div class="contenedorTexto">
+                <div id="contenedorTransacciones">
+                    <div class="contenedorTexto">
                     <div class="etiquetaTexto">CAMPO 2</div>
                     <div class="cajaTexto">
-                        <input type="text" class="caja" />
+                        <input type="text" class="caja" id="txtMonto"/>
                     </div>
                 </div>
                 <div class="contenedorAcciones">
-                    <input type="button" value="DEPOSITAR" />
-                    <input type="button" value="RETIRAR" />
+                    <input type="button" value="DEPOSITAR" onclick="ejecutarDeposito();"/>
+                    <input type="button" value="RETIRAR" onclick="ejecutarRetiro();"/>
                     
+                </div>
+                <div id="divTabla">
+
+                </div>
                 </div>
               
             </div>
